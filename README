@@ -1,0 +1,8 @@
+Build Docker image
+docker build -t gdal .
+
+Start docker container
+docker run -d -ti --entrypoint=/bin/bash --name=gdal -v /mnt/research/data:/mnt gdal
+
+Exec gdal commands
+docker exec gdal gdallocationinfo
