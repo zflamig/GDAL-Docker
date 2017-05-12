@@ -17,7 +17,7 @@ RUN http_proxy=http://cloud-proxy:3128 https_proxy=http://cloud-proxy:3128 apt-g
 
 RUN http_proxy=http://cloud-proxy:3128 https_proxy=http://cloud-proxy:3128 wget https://www.hdfgroup.org/package/bzip2/?wpdmdl=4300
 RUN mv "index.html?wpdmdl=4300" hdf5-1.10.1.tar.bz2 && tar xf hdf5-1.10.1.tar.bz2
-RUN cd hdf5-1.10.1 && ./configure --prefix=/usr && make -j4 && make install
+RUN cd hdf5-1.10.1 && ./configure --prefix=/usr --enable-cxx --with-zlib=/usr/include,/usr/lib/x86_64-linux-gnu && make -j4 && make install
 
 RUN http_proxy=http://cloud-proxy:3128 https_proxy=http://cloud-proxy:3128 wget https://github.com/Unidata/netcdf-c/archive/v4.4.1.1.tar.gz
 RUN tar xf v4.4.1.1.tar.gz
